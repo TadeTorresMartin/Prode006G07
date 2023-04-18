@@ -7,10 +7,10 @@ public class Partido {
     private String equipo2;
     private int golesEquipo1;
     private int golesEquipo2;
-    private int fecha;
+    private float fecha;
 
     // Constructor con todos los parametros
-    public Partido(int fecha,String equipo1, int golesEquipo1, String equipo2, int golesEquipo2) {
+    public Partido(float fecha,String equipo1, int golesEquipo1, String equipo2, int golesEquipo2) {
         this.fecha = fecha;
         this.equipo1 = equipo1;
         this.golesEquipo1 = golesEquipo1;

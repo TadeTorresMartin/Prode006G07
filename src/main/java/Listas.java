@@ -3,7 +3,10 @@ import java.util.HashMap;
 public class Listas {
 
     // Creacion de Hashmap para guardar las fechas
-    private HashMap<Integer, Partido> listaPartidos = new HashMap<Integer, Partido>();
+    private HashMap<Float, Partido> listaPartidos;
+    public Listas(){
+        listaPartidos = new HashMap<>();
+    }
 
     // Agregar partido al mapa
     public void agregarPartido(Partido partido){
