@@ -1,10 +1,10 @@
 import java.util.HashMap;
 
-public class Listas {
+public class ListaPartido {
 
     // Creacion de Hashmap para guardar las fechas
     private HashMap<Float, Partido> listaPartidos;
-    public Listas(){
+    public ListaPartido(){
         listaPartidos = new HashMap<>();
     }
 
@@ -12,6 +12,9 @@ public class Listas {
     public void agregarPartido(Partido partido){
         listaPartidos.put(partido.getFecha(), partido);
         
+    }
+    public void mostrarpartido( double fechaBuscada){
+        System.out.println(listaPartidos.get(fechaBuscada));
     }
 
     // Saber cantidad de partidos

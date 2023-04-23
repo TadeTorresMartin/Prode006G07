@@ -1,7 +1,10 @@
 import lombok.*;
 
+import java.util.HashMap;
+
 @Getter @Setter
 public class Partido {
+
 
     private String equipo1;
     private String equipo2;
@@ -20,8 +23,9 @@ public class Partido {
     }
 
     public String toString (){
-        return equipo1 + " " + golesEquipo1 + " - " + equipo2  + " " +  golesEquipo2;
+        return fecha + " " + equipo1 + " " + golesEquipo1 + " - " + equipo2  + " " +  golesEquipo2;
 
     }
+
 
 }

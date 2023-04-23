@@ -8,20 +8,17 @@ public class Persona {
 
     private String nombre;
     private String apellido;
+    private float documento;
 
-    public Persona(String nombre, String apellido) {
+
+    public Persona(String nombre, String apellido, float documento) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.documento = documento;
     }
 
     // Metodo para leer archivo
-    public  void  Pronostico() throws IOException {
-        Path pronosticoPersona = Paths.get("ejemplo.txt");
-        Scanner scPronostico =  new Scanner(pronosticoPersona);
-        while(scPronostico.hasNext()){
-            //opero con el archivo, seguramente algo parecido a como se opera en el main con los partidos
-        }
 
-        scPronostico.close();
+
+
     }
-}
