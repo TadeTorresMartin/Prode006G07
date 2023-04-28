@@ -8,16 +8,23 @@ public class Persona {
 
     private String nombre;
     private String apellido;
-    private float documento;
+    private int documento;
+
+    private int puntos;
 
 
-    public Persona(String nombre, String apellido, float documento) {
+    public Persona(int documento,String nombre, String apellido, int puntos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
+        this.puntos = puntos;
     }
 
     // Metodo para leer archivo
+    public void sumarPuntos(){
+        puntos++;
+    }
+
 
 
 

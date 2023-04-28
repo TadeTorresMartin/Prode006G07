@@ -13,9 +13,6 @@ public class ListaPartido {
         listaPartidos.put(partido.getFecha(), partido);
         
     }
-    public void mostrarpartido( double fechaBuscada){
-        System.out.println(listaPartidos.get(fechaBuscada));
-    }
 
     // Saber cantidad de partidos
     public int cantidadPartidos(){
@@ -23,8 +20,12 @@ public class ListaPartido {
     }
 
     // Devolver cada partido
-    public void recorrerListaPartido(){
+    public void valuesListaPartido(){
         System.out.println(listaPartidos.values());
     }
+//poner un metodo
 
+    public Partido buscarPartido(double fecha){
+        return listaPartidos.get(fecha);
+    }
 }
