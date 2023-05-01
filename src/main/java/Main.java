@@ -4,8 +4,30 @@ import java.nio.file.Paths;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import java.util.regex.*;
 public class Main {
+
+
+
     public static void main(String[] args) throws IOException, SQLException {
+
+        System.out.println("Bienvenido al Prode del grupo 007 de Argentina Programa! ");
+        System.out.println("cuanto puntos quiere que valga un acierto?:  ");
+
+        Scanner sc = new Scanner(System.in);
+        String n = sc.next();
+
+        Pattern ValidarN = Pattern.compile("[0-9]{0,10}");
+        boolean validacionNum = ValidarN.matcher(n).matches();
+
+        if (!validacionNum){
+            System.out.println("eligio un caracter incorrecto");
+        }
+
+       int numValidado = Integer.parseInt(n);
+
+
+
         ListaPartido listaPartido = new ListaPartido();
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/pronosticos", "root", "@Verne123");
         Statement st = conn.createStatement();
@@ -63,7 +85,8 @@ public class Main {
         rs3.close();
 
 
-
+        int mayorPuntaje = 0;
+        int docmayorPuntaje = 0;
         for(int i=1; i<= listapronostico.cantidadpronosticos();i++) {
             pronostico pron = listapronostico.Buscarpronostico(i);
             int documentoPron = pron.getDocumento();
@@ -73,18 +96,26 @@ public class Main {
             String StrganadorPartido = String.valueOf(ganadorPartido);
             if (StrganadorPartido.equals(equipoganadorPron)) {
                 Persona personaAcerto = listapersonas.Buscapersona(documentoPron);
-                personaAcerto.sumarPuntos();
+                int posibleGanador = personaAcerto.sumarPuntos(numValidado);
+                if (posibleGanador > mayorPuntaje){
+                   mayorPuntaje = posibleGanador;
+                    docmayorPuntaje = documentoPron;
+                }
+
             }
 
 
-
         }
-        //listapersonas.valuesListaPersonas();
-        //Persona resultados = listapersonas.Buscapersona();
-        //System.out.println(resultados);
+        System.out.println(" ¡GANADOR ACTUAL DEL PRODE!");
+        System.out.println(listapersonas.Buscapersona(docmayorPuntaje));
+
+        System.out.println("LISTA DE PARTICIPANTES Y PUNTAJES: ");
+        listapersonas.valuesListaPersonas();
+
+        sc.close();
 
 
-        
+
 
 
 

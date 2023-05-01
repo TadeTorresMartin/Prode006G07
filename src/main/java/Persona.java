@@ -22,8 +22,11 @@ public class Persona {
     }
 
 
-    public void sumarPuntos(){
-        puntos++;
+    public int sumarPuntos(int n){
+        puntos = puntos + 1*n;
+
+
+        return puntos;
     }
 
     public String toString(){
