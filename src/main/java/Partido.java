@@ -1,7 +1,5 @@
 import lombok.*;
 
-import java.util.HashMap;
-
 @Getter @Setter
 public class Partido {
 
@@ -10,10 +8,10 @@ public class Partido {
     private String equipo2;
     private int golesEquipo1;
     private int golesEquipo2;
-    private float fecha;
+    private double fecha;
 
     // Constructor con todos los parametros
-    public Partido(float fecha,String equipo1, int golesEquipo1, String equipo2, int golesEquipo2) {
+    public Partido(double fecha,String equipo1, int golesEquipo1, String equipo2, int golesEquipo2) {
         this.fecha = fecha;
         this.equipo1 = equipo1;
         this.golesEquipo1 = golesEquipo1;
@@ -22,8 +20,18 @@ public class Partido {
 
     }
 
+
+
     public String toString (){
-        return fecha + " " + equipo1 + " " + golesEquipo1 + " - " + equipo2  + " " +  golesEquipo2;
+        if (golesEquipo1 > golesEquipo2){
+            return equipo1;
+        }
+        if (golesEquipo1 == golesEquipo2){
+            return "empate";
+        }
+        else return equipo2;
+
+
 
     }
 

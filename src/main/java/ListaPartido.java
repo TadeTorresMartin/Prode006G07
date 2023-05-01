@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class ListaPartido {
 
     // Creacion de Hashmap para guardar las fechas
-    private HashMap<Float, Partido> listaPartidos;
+    private HashMap<Double, Partido> listaPartidos;
     public ListaPartido(){
         listaPartidos = new HashMap<>();
     }
@@ -23,9 +23,23 @@ public class ListaPartido {
     public void valuesListaPartido(){
         System.out.println(listaPartidos.values());
     }
-//poner un metodo
 
-    public Partido buscarPartido(double fecha){
+    public Partido buscarGanador(double fecha){
         return listaPartidos.get(fecha);
     }
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+

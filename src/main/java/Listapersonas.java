@@ -17,6 +17,16 @@ public class Listapersonas {
         return listapersonas.size();
     }
 
+    public void valuesListaPersonas(){
+        System.out.println(listapersonas.values());
+
+    }
+
+
+
+
+
+
 
 
 

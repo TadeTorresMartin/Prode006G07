@@ -23,7 +23,7 @@ public class pronostico {
 
     }
     public String toString() {
-        return "a";
+        return documento + " , " + fecha +  " , " + equipoganador ;
     }
 
 }

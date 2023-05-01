@@ -1,20 +1,24 @@
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
-
+import java.text.DecimalFormat;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
-        ListaPartido listaresultado = new ListaPartido();
+        ListaPartido listaPartido = new ListaPartido();
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/pronosticos", "root", "@Verne123");
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("select * from tablaprode");
         while (rs.next()) {
-            float fechaPronostico = rs.getFloat("fecha");
+            double fechaPronostico = rs.getDouble("fecha");
             String equipo1 = rs.getString("equipo1");
             int golEquipo1 = rs.getInt("golesequipo1");
             String equipo2 = rs.getString("equipo2");
             int golEquipo2 = rs.getInt("golesequipo2");
             Partido p = new Partido(fechaPronostico, equipo1, golEquipo1, equipo2, golEquipo2);
-            listaresultado.agregarPartido(p);
+            listaPartido.agregarPartido(p);
+
 
 
 
@@ -53,18 +57,37 @@ public class Main {
             Persona pers = new Persona(documento,nombre,apellido,0);
             listapersonas.agregarPersona(pers);
 
+
         }
         st3.close();
         rs3.close();
 
 
-        for(int i= 0; i<listapronostico.cantidadpronosticos();i++){
+
+        for(int i=1; i<= listapronostico.cantidadpronosticos();i++) {
+            pronostico pron = listapronostico.Buscarpronostico(i);
+            int documentoPron = pron.getDocumento();
+            String equipoganadorPron = pron.getEquipoganador();
+            double fechaPron = pron.getFecha();
+            Partido ganadorPartido = listaPartido.buscarGanador(fechaPron);
+            String StrganadorPartido = String.valueOf(ganadorPartido);
+            if (StrganadorPartido.equals(equipoganadorPron)) {
+                Persona personaAcerto = listapersonas.Buscapersona(documentoPron);
+                personaAcerto.sumarPuntos();
+            }
+
+
 
         }
+        //listapersonas.valuesListaPersonas();
+        //Persona resultados = listapersonas.Buscapersona();
+        //System.out.println(resultados);
 
 
-        listapronostico.getpronostico(1);
-        listaresultado.buscarPartido(1.1);
+        
+
+
+
 
 
 
@@ -75,4 +98,17 @@ public class Main {
 
 
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }

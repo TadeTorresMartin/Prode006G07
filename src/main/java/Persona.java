@@ -11,6 +11,7 @@ public class Persona {
     private int documento;
 
     private int puntos;
+    private int index;
 
 
     public Persona(int documento,String nombre, String apellido, int puntos) {
@@ -20,11 +21,16 @@ public class Persona {
         this.puntos = puntos;
     }
 
-    // Metodo para leer archivo
+
     public void sumarPuntos(){
         puntos++;
     }
 
+    public String toString(){
+        return "Puntos de " + nombre + " " +  apellido + " : " + puntos +  "\n";
+
+
+    }
 
 
 
